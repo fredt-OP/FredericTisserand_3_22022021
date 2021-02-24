@@ -1,0 +1,19 @@
+{
+  "name": "frederictisserand_3_22022021",
+  "version": "1.0.0",
+  "description": "OHMYFOOD",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss: ./public/css/style.css "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredt-OP/FredericTisserand_3_22022021.git"
+  },
+  "author": "Tisserand Frederic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fredt-OP/FredericTisserand_3_22022021/issues"
+  },
+  "homepage": "https://github.com/fredt-OP/FredericTisserand_3_22022021#readme"
+}
