@@ -1,0 +1,13 @@
+{
+    "version": 3,
+    "mappings": "AAA8B,iEAAiE;AACjE,iEAAiE;AAEpE,8DAA8D",
+    "sources": [
+        "../../sass/style.scss",
+        "../../sass/Utils/_variables.scss",
+        "../../sass/Utils/_functions.scss",
+        "../../sass/Utils/_extensions.scss",
+        "../../sass/Utils/_mixins.scss"
+    ],
+    "names": [],
+    "file": "style.css"
+}
