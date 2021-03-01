@@ -2,13 +2,11 @@
 @import "./Utils/functions";  /*ceci est le chemin vers le sass ou sont stocker les fonctions*/
 @import "./Utils/extensions";
 @import "./Utils/mixins";  /*ceci est le chemin vers le sass ou sont stocker les mixins*/
-@import "./Layout/form";
-@import "./Layout/header";
-@import "./Layout/nav";
-@import "./Layouts/container";
-@import "./Base/base";
-@import "./Base/typography";
-@import "./Components/buttons";
-@import "./Pages/work";
-@import "./Pages/about";
-@import "./Pages/project";
+
+
+.headerImg {
+    border: 3px solid #fff;
+}
+.header {
+    background-color: aqua;
+}
