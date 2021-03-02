@@ -1,4 +1,221 @@
+/*Les variables*/
 /*ceci est le chemin vers le sass ou sont stocker les variables*/
 /*ceci est le chemin vers le sass ou sont stocker les fonctions*/
 /*ceci est le chemin vers le sass ou sont stocker les mixins*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap");
+body {
+  font-family: 'Shrikhand', cursive;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+/*Le logo*/
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header .headerLogo {
+  width: 200px;
+  margin: 1em 0;
+}
+
+/*Location*/
+.location {
+  display: flex;
+  justify-content: center;
+  background-color: #D3D3D3;
+  background: rgba(211, 211, 211, 0.5);
+  width: 100%;
+  font-weight: bold;
+  padding: 1em 0;
+  border-top: 2px solid #D3D3D3;
+}
+
+.location .locationIcon, .location .locationTitle {
+  margin: 0 0.5em;
+}
+
+/*Titres et bouton*/
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #D3D3D3;
+  background: rgba(211, 211, 211, 0.3);
+  text-align: center;
+}
+
+.title h1 {
+  padding: 0 1em;
+}
+
+.title p {
+  padding: 0 2em;
+}
+
+.title .explore {
+  font-weight: bold;
+  color: white;
+  background: #ff79da;
+  background: linear-gradient(175deg, #ff79da 0%, #9356dc 84%);
+  border-radius: 30px;
+  padding: 1em;
+  margin: 1em 0 4em 0;
+}
+
+.title .explore:hover {
+  background: #ae80e5;
+}
+
+/*Le fonctionnement*/
+.operation h2 {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 1.5em;
+}
+
+.operation .operationChoices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.operation .operationChoices .operationChoice {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 80%;
+  background-color: rgba(211, 211, 211, 0.3);
+  border-radius: 20px;
+  margin: 0.5em 0;
+}
+
+.operation .operationChoices .operationChoice:hover {
+  background-color: rgba(147, 86, 220, 0.3);
+}
+
+.operation .operationChoices .operationChoice p {
+  position: absolute;
+  left: -0.5em;
+  border-radius: 100%;
+  color: white;
+  background-color: #9356DC;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+.operation .operationChoices .operationChoice .operationChoiceIcon {
+  display: flex;
+  align-items: center;
+  margin-left: 2em;
+}
+
+.operation .operationChoices .operationChoice .operationChoiceIcon:hover {
+  color: #9356DC;
+}
+
+.operation .operationChoices .operationChoice h3 {
+  width: 100%;
+  text-align: center;
+}
+
+.restaurants {
+  background-color: #D3D3D3;
+}
+
+.restaurants h2 {
+  margin: 0;
+  padding: 2.5em 0 0 1em;
+}
+
+.restaurantsCardList .restaurantsCard {
+  max-width: 90%;
+  border-radius: 1.25em;
+  box-shadow: 0px 2px 8px 0px #00000020;
+  margin: 0 0.5em;
+  cursor: pointer;
+  transition-duration: 0.1s;
+}
+
+.restaurantsCardList .restaurantsCard .restaurantsCardFigure {
+  position: relative;
+  background-color: white;
+  border-radius: 1em 1em 1em 1em;
+  width: 90%;
+  height: 13em;
+  margin: 0 auto;
+}
+
+.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureImg {
+  min-width: 100%;
+  height: 66%;
+  border-radius: 1em 1em 0 0;
+  object-fit: cover;
+}
+
+.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureNew {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  background-color: #99e2d0;
+  color: #008766;
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption {
+  position: relative;
+  text-decoration: none;
+}
+
+.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption h3 {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin: 0 0 0 1em;
+  padding-top: 0.5em;
+}
+
+.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardDescript {
+  color: black;
+  text-decoration: none;
+  margin: 0 0 0 1em;
+  padding-top: 0.5em;
+}
+
+.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardIcon {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+footer {
+  width: 100%;
+  background-color: black;
+}
+
+footer .footerFooter .footerLogo {
+  font-family: 'Shrikhand', cursive;
+  width: 200px;
+  color: white;
+}
+
+footer .footerList {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .footerList .footerList1 {
+  display: flex;
+}
+
+footer .footerList .footerList1 .footerListIcon {
+  margin: 0 0.5em;
+  color: white;
+}
+
+footer .footerList .footerList1 .footerListtext {
+  color: white;
+}
 /*# sourceMappingURL=style.css.map */

@@ -3,4 +3,82 @@
 @import "./Utils/extensions";
 @import "./Utils/mixins";  /*ceci est le chemin vers le sass ou sont stocker les mixins*/
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
 
+
+
+body {
+    font-family: 'Shrikhand', cursive;
+    font-family: 'Roboto', sans-serif;
+    margin:0;
+}
+/*Le logo*/
+.header {
+    @include dflexjcc;
+    .headerLogo {
+        width: 200px;
+        margin: 1em 0;
+    }
+}
+
+/*Location*/
+.location {
+    @include dflexjcc;
+    background-color: $grey;
+    background: rgba($grey, 0.5);
+    width: 100%;
+    font-weight: bold;
+    padding: 1em 0;
+    border-top: 2px solid $grey;
+    .locationIcon, .locationTitle {
+        margin: 0 0.5em;
+    }
+}
+
+/*Titres et bouton*/
+.title {
+    @include dflexcolc;
+    width:100%;
+    background-color: $grey;
+    background: rgba($grey, 0.3);
+    text-align: center;
+    h1 {
+        padding: 0 1em;
+    }
+    p {
+        padding: 0 2em;
+    }
+    .explore {
+        @include buttonradient;
+    }
+}
+
+/*Le fonctionnement*/
+.operation {
+    h2{
+        display:flex;
+        justify-content:flex-start;
+        margin-left: 1.5em;
+    }
+    .operationChoices {
+    @include dflexcolc;
+
+        .operationChoice {
+            @include operationCard;
+        }
+    }
+}
+.restaurants {
+    background-color: $grey;
+    h2 {
+        margin: 0;
+        padding: 2.5em 0 0 1em;
+    }
+}
+.restaurantsCardList {
+    @include viewRestaurant;
+}
+
+footer {
+    @include foot;
+}
