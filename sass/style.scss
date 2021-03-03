@@ -1,7 +1,7 @@
-@import "./Utils/variables";  /*ceci est le chemin vers le sass ou sont stocker les variables*/
-@import "./Utils/functions";  /*ceci est le chemin vers le sass ou sont stocker les fonctions*/
+@import "./Utils/variables";  
+@import "./Utils/functions";  
 @import "./Utils/extensions";
-@import "./Utils/mixins";  /*ceci est le chemin vers le sass ou sont stocker les mixins*/
+@import "./Utils/mixins";  
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
 
@@ -14,11 +14,17 @@ body {
 }
 /*Le logo*/
 .header {
+    position: relative;
     @include dflexjcc;
     .headerLogo {
         width: 200px;
         margin: 1em 0;
     }
+    .headerIcon {
+        position:absolute;
+        top: 25px;
+        left: 20px;
+       }
 }
 
 /*Location*/
@@ -29,7 +35,7 @@ body {
     width: 100%;
     font-weight: bold;
     padding: 1em 0;
-    border-top: 2px solid $grey;
+    border-top: 3px solid $grey;
     .locationIcon, .locationTitle {
         margin: 0 0.5em;
     }
@@ -44,9 +50,12 @@ body {
     text-align: center;
     h1 {
         padding: 0 1em;
+        margin-top: 1em;
+        margin-bottom: 0.25em;
     }
     p {
         padding: 0 2em;
+        margin-top: 0;
     }
     .explore {
         @include buttonradient;
@@ -59,25 +68,107 @@ body {
         display:flex;
         justify-content:flex-start;
         margin-left: 1.5em;
+        margin-top: 2em;
     }
     .operationChoices {
+        margin-bottom: 3em;
     @include dflexcolc;
 
         .operationChoice {
             @include operationCard;
         }
-    }
+ 
+ /*Les restaurants*/   }
 }
 .restaurants {
     background-color: $grey;
+    background: lighten($grey, 14);
     h2 {
         margin: 0;
         padding: 2.5em 0 0 1em;
+        font-weight: 900;
     }
 }
 .restaurantsCardList {
     @include viewRestaurant;
 }
+
+/*Pages*/
+.restaurantCard {
+    margin: 0 auto;
+    .restaurantCardImgImg {
+        position: relative;
+            width: 100%;
+    }
+    
+    .restaurantCardMenu {
+        position:absolute;
+        margin-top: -3em;
+        background-color: $grey;
+        background: lighten($grey, 14);
+        border-radius: 2em 2em 0 0;
+        width: 100%;
+            .restaurantCardMenuTitle {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                
+                width: 100%;
+            }
+            h1 {
+                font-family: 'Shrikhand', cursive;
+                font-weight: 500;
+            }
+            .restaurantCardMenus {
+                h2 {
+
+                }
+                .cardMenus {
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .cardMenu{
+                        background-color: white;
+                        border-radius: 1em;
+                        box-shadow: 0px 2px 8px 0px #00000020;
+                        width: 90%;
+                        height: 5em;
+                        position: relative;
+                        margin: 0.5em 0;
+
+                        h3 {
+                            font-weight: 700;
+                            margin: 0.6em 0 0.3em 0.5em;
+                        }
+                        p {
+                            margin: 0 0 0 0.5em;
+                        }
+                        .cardMenuPriceIcon {
+                            position:absolute;
+                            top: 10px;
+                            right: 10px;
+                        }
+
+                    }
+                }
+            }
+            .order {
+                @include dflexjcc;
+                 
+                 @include buttonradient;
+                 width: 10em;
+             }
+    }
+
+}
+
+
+
+
+
+
+
+
 
 footer {
     @include foot;
