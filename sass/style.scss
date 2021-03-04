@@ -1,0 +1,187 @@
+@import "./Utils/variables";  
+@import "./Utils/functions";  
+@import "./Utils/extensions";
+@import "./Utils/mixins";  
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
+
+
+
+body {
+    font-family: 'Shrikhand', cursive;
+    font-family: 'Roboto', sans-serif;
+    margin:0;
+}
+/*Le logo*/
+.header {
+    position: relative;
+    @include dflexjcc;
+    .headerLogo {
+        width: 200px;
+        margin: 1em 0;
+    }
+    .headerIcon {
+        position:absolute;
+        top: 25px;
+        left: 20px;
+        color:black;
+        text-decoration: none;
+       }
+}
+
+/*Location*/
+.location {
+    @include dflexjcc;
+    background-color: $grey;
+    background: rgba($grey, 0.5);
+    width: 100%;
+    font-weight: bold;
+    padding: 1em 0;
+    border-top: 3px solid $grey;
+    .locationIcon, .locationTitle {
+        margin: 0 0.5em;
+    }
+}
+
+/*Titres et bouton*/
+.title {
+    @include dflexcolc;
+    width:100%;
+    background-color: $grey;
+    background: rgba($grey, 0.3);
+    text-align: center;
+    h1 {
+        padding: 0 1em;
+        margin-top: 1em;
+        margin-bottom: 0.25em;
+    }
+    p {
+        padding: 0 2em;
+        margin-top: 0;
+    }
+    .explore {
+        @include buttonradient;
+    }
+}
+
+/*Le fonctionnement*/
+.operation {
+    h2{
+        display:flex;
+        justify-content:flex-start;
+        margin-left: 1.5em;
+        margin-top: 2em;
+    }
+    .operationChoices {
+        margin-bottom: 3em;
+    @include dflexcolc;
+
+        .operationChoice {
+            @include operationCard;
+        }
+ 
+ /*Les restaurants*/   }
+}
+.restaurants {
+    background-color: $grey;
+    background: lighten($grey, 14);
+    h2 {
+        margin: 0;
+        padding: 2.5em 0 0 1em;
+        font-weight: 900;
+    }
+}
+.restaurantsCardList {
+    @include viewRestaurant;
+}
+
+/*Pages*/
+.restaurantCard {
+    margin: 0 auto;
+    
+    
+    .restaurantCardImgImg {
+        height: 285px;
+            width: 100%;
+    }
+    
+    .restaurantCardMenu {
+        position: relative;
+        
+        margin-top: -3em;
+        background-color: $grey;
+        background: lighten($grey, 14);
+        border-radius: 2em 2em 0 0;
+        width: 100%;
+        height: 100%;
+            .restaurantCardMenuTitle {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding-top: 1em;
+                width: 100%;
+            }
+            h1 {
+                font-family: 'Shrikhand', cursive;
+                font-weight: 500;
+                font-size: 30px;
+                margin-left: 0.5em;
+            }
+            .restaurantCardMenus {
+                h2 {
+                    margin-top: 0.5em;
+                    margin-left: 1em;
+                    font-weight: 500;
+                }
+                .cardMenus {
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .cardMenu{
+                        background-color: white;
+                        border-radius: 1em;
+                        box-shadow: 0px 2px 8px 0px #00000020;
+                        width: 90%;
+                        height: 5em;
+                        position: relative;
+                        margin: 0.5em 0;
+
+                        h3 {
+                            font-weight: 700;
+                            margin: 0.6em 0 0.3em 0.5em;
+                        }
+                        p {
+                            margin: 0 0 0 0.5em;
+                        }
+                        .cardMenuPriceIcon {
+                            position:absolute;
+                            top: 10px;
+                            right: 10px;
+                        }
+
+                    }
+                }
+            }
+            .button {
+                @include dflexjcc;
+                .order {
+                    @include dflexjcc;
+                    @include buttonradient;
+                     width: 10em;
+                 }
+            }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+footer {
+    @include foot;
+    }
