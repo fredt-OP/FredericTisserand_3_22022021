@@ -6,14 +6,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
 
 
-
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+} 
+@keyframes heart {
+      
+}
 body {
+    
     font-family: 'Shrikhand', cursive;
     font-family: 'Roboto', sans-serif;
     margin:0;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;  
 }
+
+
 /*Le logo*/
 .header {
+    max-width: 1200px;
+    margin:0 auto;
     position: relative;
     @include dflexjcc;
     .headerLogo {
@@ -27,6 +45,10 @@ body {
         color:black;
         text-decoration: none;
        }
+}
+main {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /*Location*/
@@ -43,7 +65,7 @@ body {
     }
 }
 
-/*Titres et bouton*/
+/*Titres et boutons*/
 .title {
     @include dflexcolc;
     width:100%;
@@ -75,39 +97,190 @@ body {
     .operationChoices {
         margin-bottom: 3em;
     @include dflexcolc;
-
         .operationChoice {
             @include operationCard;
+            width:87%;
+            background-color: rgba($grey, 0.3);
+            border-radius: 20px;
+            box-shadow: 0px 2px 8px 0px #00000020;
+            font-weight: 900;
+            margin: 0.5em 1em 0.5em 1.5em;
+            &:hover {
+                background-color: rgba($primary, 0.3);
+            }
+            p {
+                position:absolute;
+                top: 6px;
+                left: -0.75em;
+                border-radius: 100%;
+                color: white;
+                background-color: $primary;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 0.25em 0.6em 0.25em 0.6em;
+            }
+            .operationChoiceIcon {
+                display: flex;
+                align-items: center;
+                margin-left: 2em;
+                &:hover {
+                    color: $primary;
+                }     
+        } 
+        h3 {
+            width: 100%;
+            text-align: center;
         }
- 
- /*Les restaurants*/   }
+        .title1 {
+            margin-left: -1em;
+        }
+        .title2 {
+            margin-left: -2em;
+        }
+        .title3 {
+            margin-left: -1.5em;
+        }
+
+    }
+}
+@media screen and (min-width: 700px) {
+    h2 {
+        display:flex;
+        justify-content:center;
+        margin-left: 0;
+    }
+    .operationChoices {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        
+    } 
+    .operationChoice {
+        margin-right: 2em;
+        margin-left: 2em;
+         max-width: 400px;
+     } 
+     
+}
+
+ /*Les restaurants*/   
 }
 .restaurants {
     background-color: $grey;
     background: lighten($grey, 14);
+    margin-bottom: -1em;
+    padding-bottom: 2em;
     h2 {
         margin: 0;
         padding: 2.5em 0 0 1em;
         font-weight: 900;
     }
 }
-.restaurantsCardList {
-    @include viewRestaurant;
+
+.restaurantsCard {
+    max-width: 90%;   
+    border-radius: 1.25em;
+    margin: 0.5em;
+    cursor:pointer;
+    transition-duration: 0.1s;
+    text-decoration: none;   
+    .restaurantsCardFigure {
+        position: relative;
+        background-color: white;
+        border-radius: 1em 1em 1em 1em;
+        box-shadow: 0px 4px 8px 0px #00000020;
+        width: 90%;
+        height: 13em;
+        margin: 0 auto;
+            .restaurantsCardFigureImg {
+                min-width: 100%;
+                height: 66%;
+                border-radius: 1em 1em 0 0;
+                object-fit: cover; 
+            }
+            .restaurantsCardFigureNew {
+                position: absolute;
+                top: -5px;
+                right: 10px;
+                background-color: $mint;
+                color: $green;
+                font-weight: bold;
+                padding: 0.5em;
+            }
+            .restaurantsCardFigureFigcaption {
+                position: relative;
+                
+                h3 {
+                    color: black;
+                    font-weight: 900;
+                    margin: 0 0 0 1em;
+                    padding-top: 0.5em;
+                    text-decoration: none;
+                }
+                .restaurantsCardDescript {
+                    color: black;
+                    margin: 0 0 0 1em;
+                }
+                .restaurantsCardIcon {
+                    position: absolute;
+                    top: 15px;
+                    right: 10px;
+                    /*.heart {
+
+                        &:hover {
+                            background: rgb(255,121,218);
+                            background: linear-gradient(175deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 84%);
+                            opacity: 1;
+                            transform: scale(1);
+                            transition: transform 8s linear;
+                            transform-origin: center 60%;
+                        }
+                    }*/
+                    }
+                    .fa-heart {
+                        color: #000;
+                        
+                        content: "\f004";
+                    }
+                    
+                    .fa-heart:hover{
+                        transition: color 6s ease-out;
+                        font-weight: bold;
+                        color: blue;
+                        cursor: pointer;
+                }
+            }
+    }
+}
+@media screen and (min-width: 700px) {
+    .restaurants {
+        h2 {
+            display:flex;
+            justify-content: center;
+            margin-bottom: 1.5em;
+        }
+        .restaurantsCardList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+            .restaurantsCardFigure {
+                min-width: 400px;
+            }
+        }
+    }
 }
 
-/*Pages*/
+/*Pages*/ 
 .restaurantCard {
     margin: 0 auto;
-    
-    
-    .restaurantCardImgImg {
-        height: 285px;
+        .restaurantCardImgImg {
+            height: 285px;
             width: 100%;
-    }
+}
     
     .restaurantCardMenu {
         position: relative;
-        
         margin-top: -3em;
         background-color: $grey;
         background: lighten($grey, 14);
@@ -119,19 +292,20 @@ body {
                 justify-content: space-around;
                 align-items: center;
                 padding-top: 1em;
-                width: 100%;
+                   width: 100%;
             }
             h1 {
                 font-family: 'Shrikhand', cursive;
                 font-weight: 500;
                 font-size: 30px;
-                margin-left: 0.5em;
+                 margin-left: 0.5em;
             }
             .restaurantCardMenus {
                 h2 {
                     margin-top: 0.5em;
                     margin-left: 1em;
                     font-weight: 500;
+                    
                 }
                 .cardMenus {
                     display:flex;
@@ -145,43 +319,127 @@ body {
                         height: 5em;
                         position: relative;
                         margin: 0.5em 0;
-
-                        h3 {
-                            font-weight: 700;
-                            margin: 0.6em 0 0.3em 0.5em;
-                        }
-                        p {
-                            margin: 0 0 0 0.5em;
-                        }
-                        .cardMenuPriceIcon {
-                            position:absolute;
-                            top: 10px;
-                            right: 10px;
-                        }
-
+                    h3 {
+                        font-weight: 700;
+                        margin: 0.6em 0 0.3em 0.5em;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    p {
+                        margin: 0 0 0 0.5em;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    .cardMenuPriceIcon {
+                        position:absolute;
+                        top: 10px;
+                        right: 10px;
                     }
                 }
             }
-            .button {
+        }
+        .button {
+            @include dflexjcc;
+            .order {
                 @include dflexjcc;
-                .order {
-                    @include dflexjcc;
-                    @include buttonradient;
-                     width: 10em;
-                 }
+                @include buttonradient;
+                width: 10em;
             }
+        }
     }
-
+}
+@media screen and (min-width: 700px) {
+    .restaurantCard {
+        .restaurantCardMenu {
+            .restaurantCardMenuTitle {
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 auto;
+                max-width: 400px;
+            }
+            .restaurantCardMenus {
+                h2 {
+                    display:flex;
+                    justify-content:center;
+                }
+                .cardMenus {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    
+                    .cardMenu {
+                        max-width: 350px;
+                        margin: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+}
+footer {
+    max-width: 1200px;
+    margin:0 auto;
+    width:100%;
+    background-color: black;
+    .footerFooter {    
+        .footerLogo {
+            font-family: 'Shrikhand', cursive;
+            width: 200px;
+            color: white;
+            margin:1em;
+            padding-top: 1em;
+        }
+    }
+    .footerList {
+        display:flex;
+        flex-direction:column;
+        .footerList1,
+        .footerList2,
+        .footerList3,
+        .footerList4 {
+            max-width: 250px;
+            display: flex;
+            margin-left: 0.5em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+            .footerListIcon1 {
+                margin: 0 0.5em;
+                color: white;
+            }
+            .footerListIcon2 {
+                margin: 0 0 0 0.5em;
+                color: white;
+            }
+            .footerListtext {
+                color: white;
+                margin-left: 0.5em;
+                margin-bottom: 0.5em;
+            }
+        }
+    }
 }
 
-
-
-
-
-
-
-
-
-footer {
-    @include foot;
-    }
+@media screen and (min-width: 700px) {
+    footer {
+        .footerFooter {
+            display:flex;
+            justify-content: center;
+            .footerLogo {
+                display:flex;
+                justify-content: center;
+                margin: 0;
+            }
+        }
+            .footerList {
+                display:flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: space-around;
+                margin: 1em 0 ;
+            }
+        }    
+}

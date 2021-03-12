@@ -1,12 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap");
-body {
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes heart {}body {
   font-family: 'Shrikhand', cursive;
   font-family: 'Roboto', sans-serif;
   margin: 0;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 /*Le logo*/
 .header {
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
   display: flex;
   justify-content: center;
@@ -25,6 +39,11 @@ body {
   text-decoration: none;
 }
 
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /*Location*/
 .location {
   display: flex;
@@ -41,7 +60,7 @@ body {
   margin: 0 0.5em;
 }
 
-/*Titres et bouton*/
+/*Titres et boutons*/
 .title {
   display: flex;
   flex-direction: column;
@@ -79,6 +98,10 @@ body {
 }
 
 /*Le fonctionnement*/
+.operation {
+  /*Les restaurants*/
+}
+
 .operation h2 {
   display: flex;
   justify-content: flex-start;
@@ -91,19 +114,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*Les restaurants*/
 }
 
 .operation .operationChoices .operationChoice {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 85%;
+  width: 87%;
   background-color: rgba(211, 211, 211, 0.3);
   border-radius: 20px;
   box-shadow: 0px 2px 8px 0px #00000020;
   font-weight: 900;
-  margin: 0.5em 0;
+  margin: 0.5em 1em 0.5em 1.5em;
 }
 
 .operation .operationChoices .operationChoice:hover {
@@ -113,13 +135,13 @@ body {
 .operation .operationChoices .operationChoice p {
   position: absolute;
   top: 6px;
-  left: -0.5em;
+  left: -0.75em;
   border-radius: 100%;
   color: white;
   background-color: #9356DC;
   font-size: 14px;
   font-weight: 500;
-  padding: 0.25em 0.5em 0.25em 0.5em;
+  padding: 0.25em 0.6em 0.25em 0.6em;
 }
 
 .operation .operationChoices .operationChoice .operationChoiceIcon {
@@ -137,9 +159,42 @@ body {
   text-align: center;
 }
 
+.operation .operationChoices .operationChoice .title1 {
+  margin-left: -1em;
+}
+
+.operation .operationChoices .operationChoice .title2 {
+  margin-left: -2em;
+}
+
+.operation .operationChoices .operationChoice .title3 {
+  margin-left: -1.5em;
+}
+
+@media screen and (min-width: 700px) {
+  .operation h2 {
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+  }
+  .operation .operationChoices {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .operation .operationChoice {
+    margin-right: 2em;
+    margin-left: 2em;
+    max-width: 400px;
+  }
+}
+
 .restaurants {
   background-color: #D3D3D3;
   background: #f7f7f7;
+  margin-bottom: -1em;
+  padding-bottom: 2em;
 }
 
 .restaurants h2 {
@@ -148,15 +203,16 @@ body {
   font-weight: 900;
 }
 
-.restaurantsCardList .restaurantsCard {
+.restaurantsCard {
   max-width: 90%;
   border-radius: 1.25em;
   margin: 0.5em;
   cursor: pointer;
   transition-duration: 0.1s;
+  text-decoration: none;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure {
+.restaurantsCard .restaurantsCardFigure {
   position: relative;
   background-color: white;
   border-radius: 1em 1em 1em 1em;
@@ -166,14 +222,14 @@ body {
   margin: 0 auto;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureImg {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureImg {
   min-width: 100%;
   height: 66%;
   border-radius: 1em 1em 0 0;
   object-fit: cover;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureNew {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureNew {
   position: absolute;
   top: -5px;
   right: 10px;
@@ -183,11 +239,11 @@ body {
   padding: 0.5em;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption {
   position: relative;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption h3 {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption h3 {
   color: black;
   font-weight: 900;
   margin: 0 0 0 1em;
@@ -195,15 +251,54 @@ body {
   text-decoration: none;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardDescript {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardDescript {
   color: black;
   margin: 0 0 0 1em;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardIcon {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardIcon {
   position: absolute;
   top: 15px;
   right: 10px;
+  /*.heart {
+
+                        &:hover {
+                            background: rgb(255,121,218);
+                            background: linear-gradient(175deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 84%);
+                            opacity: 1;
+                            transform: scale(1);
+                            transition: transform 8s linear;
+                            transform-origin: center 60%;
+                        }
+                    }*/
+}
+
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .fa-heart {
+  color: #000;
+  content: "\f004";
+}
+
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .fa-heart:hover {
+  transition: color 6s ease-out;
+  font-weight: bold;
+  color: blue;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 700px) {
+  .restaurants h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5em;
+  }
+  .restaurants .restaurantsCardList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .restaurants .restaurantsCardList .restaurantsCardFigure {
+    min-width: 400px;
+  }
 }
 
 /*Pages*/
@@ -266,10 +361,16 @@ body {
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .cardMenu h3 {
   font-weight: 700;
   margin: 0.6em 0 0.3em 0.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .cardMenu p {
   margin: 0 0 0 0.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .cardMenu .cardMenuPriceIcon {
@@ -301,7 +402,33 @@ body {
   opacity: 0.9;
 }
 
+@media screen and (min-width: 700px) {
+  .restaurantCard .restaurantCardMenu .restaurantCardMenuTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  .restaurantCard .restaurantCardMenu .restaurantCardMenus h2 {
+    display: flex;
+    justify-content: center;
+  }
+  .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .cardMenu {
+    max-width: 350px;
+    margin: 0.5em;
+  }
+}
+
 footer {
+  max-width: 1200px;
+  margin: 0 auto;
   width: 100%;
   background-color: black;
 }
@@ -319,26 +446,58 @@ footer .footerList {
   flex-direction: column;
 }
 
-footer .footerList .footerList1 {
+footer .footerList .footerList1,
+footer .footerList .footerList2,
+footer .footerList .footerList3,
+footer .footerList .footerList4 {
+  max-width: 250px;
   display: flex;
   margin-left: 0.5em;
   margin-bottom: 0.5em;
   font-weight: 700;
 }
 
-footer .footerList .footerList1 .footerListIcon1 {
+footer .footerList .footerList1 .footerListIcon1,
+footer .footerList .footerList2 .footerListIcon1,
+footer .footerList .footerList3 .footerListIcon1,
+footer .footerList .footerList4 .footerListIcon1 {
   margin: 0 0.5em;
   color: white;
 }
 
-footer .footerList .footerList1 .footerListIcon2 {
+footer .footerList .footerList1 .footerListIcon2,
+footer .footerList .footerList2 .footerListIcon2,
+footer .footerList .footerList3 .footerListIcon2,
+footer .footerList .footerList4 .footerListIcon2 {
   margin: 0 0 0 0.5em;
   color: white;
 }
 
-footer .footerList .footerList1 .footerListtext {
+footer .footerList .footerList1 .footerListtext,
+footer .footerList .footerList2 .footerListtext,
+footer .footerList .footerList3 .footerListtext,
+footer .footerList .footerList4 .footerListtext {
   color: white;
   margin-left: 0.5em;
   margin-bottom: 0.5em;
+}
+
+@media screen and (min-width: 700px) {
+  footer .footerFooter {
+    display: flex;
+    justify-content: center;
+  }
+  footer .footerFooter .footerLogo {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+  footer .footerList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 1em 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
