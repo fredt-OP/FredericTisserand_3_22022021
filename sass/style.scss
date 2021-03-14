@@ -1,22 +1,13 @@
 @import "./Utils/variables";  
 @import "./Utils/functions";  
 @import "./Utils/extensions";
-@import "./Utils/mixins";  
+@import "./Utils/mixins";
+@import "./Utils/animations.scss"; 
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
 
 
-@keyframes fadeInAnimation { 
-    0% { 
-        opacity: 0; 
-    } 
-    100% { 
-        opacity: 1; 
-     } 
-} 
-@keyframes heart {
-      
-}
+
 body {
     
     font-family: 'Shrikhand', cursive;
@@ -24,7 +15,7 @@ body {
     margin:0;
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1; 
-    animation-fill-mode: forwards;  
+    animation-fill-mode: forwards;
 }
 
 
@@ -83,6 +74,13 @@ main {
     }
     .explore {
         @include buttonradient;
+    }
+    .spinner {
+        width: 100%;
+        @include dflexjcc;
+        .loader{
+        @include loader;
+        }
     }
 }
 
@@ -193,66 +191,83 @@ main {
         width: 90%;
         height: 13em;
         margin: 0 auto;
-            .restaurantsCardFigureImg {
-                min-width: 100%;
-                height: 66%;
-                border-radius: 1em 1em 0 0;
-                object-fit: cover; 
+        .restaurantsCardFigureImg {
+            min-width: 100%;
+            height: 66%;
+            border-radius: 1em 1em 0 0;
+            object-fit: cover; 
+        }
+        .restaurantsCardFigureNew {
+            position: absolute;
+            top: -5px;
+            right: 10px;
+            background-color: $mint;
+            color: $green;
+            font-weight: bold;
+            padding: 0.5em;
+        }
+        .restaurantsCardFigureFigcaption {
+            position: relative;
+            h3 {
+                color: black;
+                font-weight: 900;
+                margin: 0 0 0 1em;
+                padding-top: 0.5em;
+                text-decoration: none;
             }
-            .restaurantsCardFigureNew {
+            .restaurantsCardDescript {
+                color: black;
+                 margin: 0 0 0 1em;
+            }
+            .restaurantsCardIcon {
                 position: absolute;
-                top: -5px;
+                top: 15px;
                 right: 10px;
-                background-color: $mint;
-                color: $green;
-                font-weight: bold;
-                padding: 0.5em;
             }
-            .restaurantsCardFigureFigcaption {
-                position: relative;
-                
-                h3 {
-                    color: black;
-                    font-weight: 900;
-                    margin: 0 0 0 1em;
-                    padding-top: 0.5em;
-                    text-decoration: none;
-                }
-                .restaurantsCardDescript {
-                    color: black;
-                    margin: 0 0 0 1em;
-                }
-                .restaurantsCardIcon {
-                    position: absolute;
-                    top: 15px;
-                    right: 10px;
-                    /*.heart {
+                /*.heart {
 
-                        &:hover {
-                            background: rgb(255,121,218);
-                            background: linear-gradient(175deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 84%);
-                            opacity: 1;
-                            transform: scale(1);
-                            transition: transform 8s linear;
-                            transform-origin: center 60%;
+                    &:hover {
+                        &::after{
+                        font-weight: bold;
+                        color: linear-gradient(175deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 84%);
+                        opacity: 1;
+                        transform: scale(1);
+                        transition: transform 8s linear;
+                        transform-origin: center 60%;
                         }
-                    }*/
                     }
+                }
+            
                     .fa-heart {
                         color: #000;
-                        
+                        position: relative;
+                        z-index: 1;
                         content: "\f004";
+                        &:hover{
+                            &::after{
+                                opacity: 1;
+                            }
+                        }
                     }
-                    
-                    .fa-heart:hover{
-                        transition: color 6s ease-out;
-                        font-weight: bold;
-                        color: blue;
+                    &::after {
+                        content:"";
+                        position: absolute;
+                        /*top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        color: linear-gradient(175deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 84%);
+                        opacity: 0;
+                        z-index: -1;
+                        transition: opacity 3s;
                         cursor: pointer;
-                }
-            }
+                        font-weight: bold;
+                    }*/
+                        
+        }
     }
 }
+
 @media screen and (min-width: 700px) {
     .restaurants {
         h2 {
@@ -261,11 +276,11 @@ main {
             margin-bottom: 1.5em;
         }
         .restaurantsCardList {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-            .restaurantsCardFigure {
-                min-width: 400px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+                .restaurantsCardFigure {
+                    min-width: 400px;
             }
         }
     }
@@ -274,83 +289,117 @@ main {
 /*Pages*/ 
 .restaurantCard {
     margin: 0 auto;
-        .restaurantCardImgImg {
-            height: 285px;
-            width: 100%;
-}
-    
-    .restaurantCardMenu {
-        position: relative;
-        margin-top: -3em;
-        background-color: $grey;
-        background: lighten($grey, 14);
-        border-radius: 2em 2em 0 0;
+    .restaurantCardImgImg {
+        height: 285px;
         width: 100%;
-        height: 100%;
+        .restaurantCardMenu {
+            position: relative;
+            margin-top: -3em;
+            background-color: $grey;
+            background: lighten($grey, 14);
+            border-radius: 2em 2em 0 0;
+            width: 100%;
+            height: 100%;
+            .spinner {
+                width: 100%;
+                @include dflexjcc;
+                .loader{
+                @include loader;
+                }
+            }
             .restaurantCardMenuTitle {
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
                 padding-top: 1em;
-                   width: 100%;
-            }
-            h1 {
-                font-family: 'Shrikhand', cursive;
-                font-weight: 500;
-                font-size: 30px;
-                 margin-left: 0.5em;
+                width: 100%;
+                h1 {
+                    font-family: 'Shrikhand', cursive;
+                    font-weight: 500;
+                    font-size: 30px;
+                    margin-left: 0.5em;
+                }
             }
             .restaurantCardMenus {
-                h2 {
-                    margin-top: 0.5em;
-                    margin-left: 1em;
-                    font-weight: 500;
-                    
+                .menu {
+                    max-height: 40px;
+                    margin-bottom: 1em;
+                    h2 {
+                        margin-top: 0.5em;
+                        margin-left: 1em;
+                        margin-bottom: 0.3em;
+                        font-weight: 500;
+                    }    
+                    .greenBar {
+                        position:absolute;
+                        margin-left: 1.5em;
+                        margin-bottom: 2em;
+                        width: 70px;
+                        height: 3px;
+                        background-color: $mint;
+                    }
                 }
                 .cardMenus {
                     display:flex;
                     flex-direction: column;
                     align-items: center;
-                    .cardMenu{
-                        background-color: white;
-                        border-radius: 1em;
-                        box-shadow: 0px 2px 8px 0px #00000020;
-                        width: 90%;
-                        height: 5em;
-                        position: relative;
-                        margin: 0.5em 0;
-                    h3 {
-                        font-weight: 700;
-                        margin: 0.6em 0 0.3em 0.5em;
-                        overflow: hidden;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
-                    }
-                    p {
-                        margin: 0 0 0 0.5em;
-                        overflow: hidden;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
-                    }
-                    .cardMenuPriceIcon {
-                        position:absolute;
-                        top: 10px;
-                        right: 10px;
+                    .card {
+                        display:flex;
+                        justify-content:center;
+                        align-items: center;
+                        width:100%;
+                        /*overflow:hidden;*/
+                                    
+                        .cardMenu {
+                            background-color: white;
+                            border-radius: 1em;
+                            box-shadow: 0px 2px 8px 0px #00000020;
+                            width: 90%;
+                            height: 5em;
+                            position: relative;
+                            margin: 0.5em 0;
+                            h3 {
+                                font-weight: 700;
+                                margin: 0.6em 0 0.3em 0.5em;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
+                            .cardMenuPriceIcon {
+                                display:flex;
+                                justify-content:space-between;
+                                margin-right: 1em;
+                                p {
+                                    margin: 0 0 0 0.5em;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                }
+                                .container {
+                                    display:flex;
+                                    justify-content: center;
+                                    align-items:center;
+                                    width: 80px;
+                                    height: 80px;      
+                                }
+                            }
+                        }
                     }
                 }
             }
-        }
-        .button {
-            @include dflexjcc;
-            .order {
+            .button {
                 @include dflexjcc;
-                @include buttonradient;
-                width: 10em;
+                .order {
+                    @include dflexjcc;
+                    @include buttonradient;
+                    width: 10em;
+                }
             }
+            
         }
-    }
+    }      
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 750px) {
     .restaurantCard {
         .restaurantCardMenu {
             .restaurantCardMenuTitle {
@@ -361,25 +410,28 @@ main {
                 max-width: 400px;
             }
             .restaurantCardMenus {
-                h2 {
+                .menu {
                     display:flex;
                     justify-content:center;
+                    .greenBar {
+                        margin-top: 3em;
+                    }
                 }
                 .cardMenus {
                     display: flex;
-                    flex-wrap: wrap;
-                    flex-direction: row;
-                    justify-content: space-evenly;
-                    
-                    .cardMenu {
+                        flex-wrap: wrap;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                    .card {
                         max-width: 350px;
-                        margin: 0.5em;
+                        margin: 0.5em;   
                     }
                 }
             }
         }
     }
 }
+
 footer {
     max-width: 1200px;
     margin:0 auto;
