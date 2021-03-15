@@ -223,47 +223,7 @@ main {
                 position: absolute;
                 top: 15px;
                 right: 10px;
-            }
-                /*.heart {
-
-                    &:hover {
-                        &::after{
-                        font-weight: bold;
-                        color: linear-gradient(175deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 84%);
-                        opacity: 1;
-                        transform: scale(1);
-                        transition: transform 8s linear;
-                        transform-origin: center 60%;
-                        }
-                    }
-                }
-            
-                    .fa-heart {
-                        color: #000;
-                        position: relative;
-                        z-index: 1;
-                        content: "\f004";
-                        &:hover{
-                            &::after{
-                                opacity: 1;
-                            }
-                        }
-                    }
-                    &::after {
-                        content:"";
-                        position: absolute;
-                        /*top: 0;
-                        right: 0;
-                        bottom: 0;
-                        left: 0;
-                        color: linear-gradient(175deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 84%);
-                        opacity: 0;
-                        z-index: -1;
-                        transition: opacity 3s;
-                        cursor: pointer;
-                        font-weight: bold;
-                    }*/
-                        
+            }          
         }
     }
 }
@@ -292,112 +252,117 @@ main {
     .restaurantCardImgImg {
         height: 285px;
         width: 100%;
-        .restaurantCardMenu {
-            position: relative;
-            margin-top: -3em;
-            background-color: $grey;
-            background: lighten($grey, 14);
-            border-radius: 2em 2em 0 0;
+    }
+    .restaurantCardMenu {
+        position: relative;
+        margin-top: -3em;
+        background-color: $grey;
+        background: lighten($grey, 14);
+        border-radius: 2em 2em 0 0;
+        width: 100%;
+        height: 100%;
+        .spinner {
             width: 100%;
-            height: 100%;
-            .spinner {
-                width: 100%;
-                @include dflexjcc;
-                .loader{
-                @include loader;
-                }
+            @include dflexjcc;
+            .loader{
+            @include loader;
             }
-            .restaurantCardMenuTitle {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                padding-top: 1em;
-                width: 100%;
-                h1 {
-                    font-family: 'Shrikhand', cursive;
+        }
+        .restaurantCardMenuTitle {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 1em;
+            width: 100%;
+            h1 {
+                font-family: 'Shrikhand', cursive;
+                font-weight: 500;
+                font-size: 30px;
+                margin-left: 0.5em;
+            }
+        }
+        .restaurantCardMenus {
+            .menu {
+                max-height: 40px;
+                margin-bottom: 1em;
+                h2 {
+                    margin-top: 0.5em;
+                    margin-left: 1em;
+                    margin-bottom: 0.3em;
                     font-weight: 500;
-                    font-size: 30px;
-                    margin-left: 0.5em;
+                }    
+                .greenBar {
+                    position:absolute;
+                    margin-left: 1.5em;
+                    margin-bottom: 2em;
+                    width: 70px;
+                    height: 3px;
+                    background-color: $mint;
                 }
             }
-            .restaurantCardMenus {
-                .menu {
-                    max-height: 40px;
-                    margin-bottom: 1em;
-                    h2 {
-                        margin-top: 0.5em;
-                        margin-left: 1em;
-                        margin-bottom: 0.3em;
-                        font-weight: 500;
-                    }    
-                    .greenBar {
-                        position:absolute;
-                        margin-left: 1.5em;
-                        margin-bottom: 2em;
-                        width: 70px;
-                        height: 3px;
-                        background-color: $mint;
-                    }
-                }
-                .cardMenus {
+            .cardMenus {
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                .card {
                     display:flex;
-                    flex-direction: column;
+                    
+                    justify-content: center;
                     align-items: center;
-                    .card {
-                        display:flex;
-                        justify-content:center;
-                        align-items: center;
-                        width:100%;
-                        /*overflow:hidden;*/
+                    width:100%;
+                    overflow: hidden;
+                    
                                     
-                        .cardMenu {
-                            background-color: white;
-                            border-radius: 1em;
-                            box-shadow: 0px 2px 8px 0px #00000020;
-                            width: 90%;
-                            height: 5em;
-                            position: relative;
-                            margin: 0.5em 0;
-                            h3 {
-                                font-weight: 700;
-                                margin: 0.6em 0 0.3em 0.5em;
+                    .cardMenu {
+                        background-color: white;
+                        border-radius: 1em;
+                        box-shadow: 0px 2px 8px 0px #00000020;
+                        width: 90%;
+                        height: 5em;
+                        position: relative;
+                        margin: 0.5em 0;
+                        overflow:hidden;
+                        h3 {
+                            font-weight: 700;
+                            margin: 0.6em 0 0.3em 0.5em;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                        .cardMenuPriceIcon {
+                            display:flex;
+                            justify-content:space-between;
+                            margin-right: 1em;
+                            p {
+                                margin: 0 0 0 0.5em;
                                 overflow: hidden;
                                 white-space: nowrap;
                                 text-overflow: ellipsis;
                             }
-                            .cardMenuPriceIcon {
+                            .container {
                                 display:flex;
-                                justify-content:space-between;
-                                margin-right: 1em;
-                                p {
-                                    margin: 0 0 0 0.5em;
-                                    overflow: hidden;
-                                    white-space: nowrap;
-                                    text-overflow: ellipsis;
-                                }
-                                .container {
-                                    display:flex;
-                                    justify-content: center;
-                                    align-items:center;
-                                    width: 80px;
-                                    height: 80px;      
-                                }
+                                justify-content: center;
+                                align-items:center;
+                                width: 80px;
+                                height: 80px;
+                                /*position: relative;*/    
                             }
                         }
                     }
                 }
             }
-            .button {
-                @include dflexjcc;
-                .order {
-                    @include dflexjcc;
-                    @include buttonradient;
-                    width: 10em;
-                }
-            }
-            
         }
-    }      
+        .button {
+            @include dflexjcc;
+            .order {
+                @include dflexjcc;
+                @include buttonradient;
+                width: 10em;
+            }
+        }
+            
+    }
+          
 }
 @media screen and (min-width: 750px) {
     .restaurantCard {
