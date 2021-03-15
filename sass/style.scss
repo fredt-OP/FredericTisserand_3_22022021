@@ -179,7 +179,7 @@ main {
 .restaurantsCard {
     max-width: 90%;   
     border-radius: 1.25em;
-    margin: 0.5em;
+    
     cursor:pointer;
     transition-duration: 0.1s;
     text-decoration: none;   
@@ -190,7 +190,7 @@ main {
         box-shadow: 0px 4px 8px 0px #00000020;
         width: 90%;
         height: 13em;
-        margin: 0 auto;
+        margin: 1.1em ;
         .restaurantsCardFigureImg {
             min-width: 100%;
             height: 66%;
@@ -261,13 +261,6 @@ main {
         border-radius: 2em 2em 0 0;
         width: 100%;
         height: 100%;
-        .spinner {
-            width: 100%;
-            @include dflexjcc;
-            .loader{
-            @include loader;
-            }
-        }
         .restaurantCardMenuTitle {
             display: flex;
             justify-content: space-around;
@@ -290,20 +283,18 @@ main {
                     margin-left: 1em;
                     margin-bottom: 0.3em;
                     font-weight: 500;
-                }    
-                .greenBar {
-                    position:absolute;
-                    margin-left: 1.5em;
-                    margin-bottom: 2em;
-                    width: 70px;
-                    height: 3px;
-                    background-color: $mint;
-                }
+                    &:after {
+                        content:"";
+                        width: 70px;
+                        height: 4px;
+                        display:block;
+                        background-color: $mint;
+                        margin: 0.3em 0;
+                    }
+                }   
             }
             .cardMenus {
-                display:flex;
-                flex-direction: column;
-                align-items: center;
+                
                 .card {
                     display:flex;
                     
@@ -311,8 +302,6 @@ main {
                     align-items: center;
                     width:100%;
                     overflow: hidden;
-                    
-                                    
                     .cardMenu {
                         background-color: white;
                         border-radius: 1em;
@@ -322,6 +311,19 @@ main {
                         position: relative;
                         margin: 0.5em 0;
                         overflow:hidden;
+                        &:hover{
+                            .container{
+                            transition-duration: 800ms;
+                            transform: translate(-60px);
+                             .circle {
+                                transition-duration: 800ms;
+                                transform:rotate(-360deg);
+                             }
+                            }
+                        }
+                        
+                            
+                                       
                         h3 {
                             font-weight: 700;
                             margin: 0.6em 0 0.3em 0.5em;
@@ -330,23 +332,41 @@ main {
                             text-overflow: ellipsis;
                         }
                         .cardMenuPriceIcon {
+                            position:absolute;
                             display:flex;
                             justify-content:space-between;
                             margin-right: 1em;
                             p {
+                                
                                 margin: 0 0 0 0.5em;
                                 overflow: hidden;
                                 white-space: nowrap;
                                 text-overflow: ellipsis;
                             }
-                            .container {
-                                display:flex;
-                                justify-content: center;
-                                align-items:center;
-                                width: 80px;
-                                height: 80px;
-                                /*position: relative;*/    
+                        }
+                        .container {
+                            background-color: $mint;;
+                            position:absolute;
+                            top:0;
+                            right:-60px;
+                            width:60px;
+                            height: 5em;
+                            display:flex;
+                            justify-content: center;
+                            align-items: center;
+     /*ici*/                
+                            .circle{
+                                font-size: 1.3em;
+                                position:absolute;
+                                
+                                color: #FFFFFF;
                             }
+                            
+                                
+                            
+                            
+    
+                              
                         }
                     }
                 }
@@ -378,9 +398,6 @@ main {
                 .menu {
                     display:flex;
                     justify-content:center;
-                    .greenBar {
-                        margin-top: 3em;
-                    }
                 }
                 .cardMenus {
                     display: flex;
@@ -456,7 +473,7 @@ footer {
                 flex-wrap: wrap;
                 flex-direction: row;
                 justify-content: space-around;
-                margin: 1em 0 ;
+                margin-top: 1em;
             }
         }    
 }

@@ -258,7 +258,6 @@ main {
 .restaurantsCard {
   max-width: 90%;
   border-radius: 1.25em;
-  margin: 0.5em;
   cursor: pointer;
   transition-duration: 0.1s;
   text-decoration: none;
@@ -271,7 +270,7 @@ main {
   box-shadow: 0px 4px 8px 0px #00000020;
   width: 90%;
   height: 13em;
-  margin: 0 auto;
+  margin: 1.1em;
 }
 
 .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureImg {
@@ -350,40 +349,6 @@ main {
   height: 100%;
 }
 
-.restaurantCard .restaurantCardMenu .spinner {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.restaurantCard .restaurantCardMenu .spinner .loader {
-  width: 50px;
-  height: 50px;
-  display: block;
-  position: fixed;
-  z-index: 1;
-  top: 390px;
-  opacity: 0;
-  border-radius: 50px;
-  border: 5px solid #99e2d0;
-  animation: spinner 2s linear 0.5s;
-}
-
-.restaurantCard .restaurantCardMenu .spinner .loader::after {
-  content: "";
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  bottom: -6px;
-  left: -6px;
-  border: 6px solid transparent;
-  border-top-color: #008766;
-  border-bottom-color: #008766;
-  border-radius: 50px;
-  animation: spin 1s linear 0.5s;
-  animation-iteration-count: 2;
-}
-
 .restaurantCard .restaurantCardMenu .restaurantCardMenuTitle {
   display: flex;
   justify-content: space-around;
@@ -411,19 +376,13 @@ main {
   font-weight: 500;
 }
 
-.restaurantCard .restaurantCardMenu .restaurantCardMenus .menu .greenBar {
-  position: absolute;
-  margin-left: 1.5em;
-  margin-bottom: 2em;
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .menu h2:after {
+  content: "";
   width: 70px;
-  height: 3px;
+  height: 4px;
+  display: block;
   background-color: #99e2d0;
-}
-
-.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0.3em 0;
 }
 
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card {
@@ -445,6 +404,16 @@ main {
   overflow: hidden;
 }
 
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu:hover .container {
+  transition-duration: 800ms;
+  transform: translate(-60px);
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu:hover .container .circle {
+  transition-duration: 800ms;
+  transform: rotate(-360deg);
+}
+
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu h3 {
   font-weight: 700;
   margin: 0.6em 0 0.3em 0.5em;
@@ -454,6 +423,7 @@ main {
 }
 
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu .cardMenuPriceIcon {
+  position: absolute;
   display: flex;
   justify-content: space-between;
   margin-right: 1em;
@@ -466,13 +436,23 @@ main {
   text-overflow: ellipsis;
 }
 
-.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu .cardMenuPriceIcon .container {
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu .container {
+  background-color: #99e2d0;
+  position: absolute;
+  top: 0;
+  right: -60px;
+  width: 60px;
+  height: 5em;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
-  /*position: relative;*/
+  /*ici*/
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu .container .circle {
+  font-size: 1.3em;
+  position: absolute;
+  color: #FFFFFF;
 }
 
 .restaurantCard .restaurantCardMenu .button {
@@ -509,9 +489,6 @@ main {
   .restaurantCard .restaurantCardMenu .restaurantCardMenus .menu {
     display: flex;
     justify-content: center;
-  }
-  .restaurantCard .restaurantCardMenu .restaurantCardMenus .menu .greenBar {
-    margin-top: 3em;
   }
   .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus {
     display: flex;
@@ -596,7 +573,7 @@ footer .footerList .footerList4 .footerListtext {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-    margin: 1em 0;
+    margin-top: 1em;
   }
 }
 /*# sourceMappingURL=style.css.map */
