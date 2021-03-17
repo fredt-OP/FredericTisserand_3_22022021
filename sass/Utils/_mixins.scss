@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+//------------------------
+//Mixin Bouton Radient
+//------------------------
+
 @mixin buttonradient {
         font-weight: bold;
         color: white;
@@ -19,139 +23,52 @@
         padding: 1em;
         margin: 1em 0 4em 0;
         &:hover {
-            opacity: 0.9;
+            opacity: 0.85;
         }
 }
+
+//------------------------
+//Mixin Alignement
+//------------------------
 
 @mixin operationCard {
     display: flex;
     flex-direction: row;
     position: relative;
-    width: 85%;
-    background-color: rgba($grey, 0.3);
-    border-radius: 20px;
-    box-shadow: 0px 2px 8px 0px #00000020;
-    font-weight: 900;
-    margin: 0.5em 0;
-    &:hover {
-        background-color: rgba($primary, 0.3);
-    }
-    p {
-        position:absolute;
-        top: 6px;
-        left: -0.5em;
-        border-radius: 100%;
-        color: white;
-        background-color: $primary;
-        font-size: 14px;
-        font-weight: 500;
-        padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    .operationChoiceIcon {
-        display: flex;
-        align-items: center;
-        margin-left: 2em;
-        &:hover {
-            color: $primary;
-        }
-    } 
-        h3 {
-            width: 100%;
-            text-align: center;
-        }
 }
 
-@mixin viewRestaurant {
-    .restaurantsCard {
-        max-width: 90%;   
-        border-radius: 1.25em;
-        margin: 0.5em;
-        cursor:pointer;
-        transition-duration: 0.1s;   
-        .restaurantsCardFigure {
-            position: relative;
-            background-color: white;
-            border-radius: 1em 1em 1em 1em;
-            box-shadow: 0px 4px 8px 0px #00000020;
-            width: 90%;
-            height: 13em;
-            margin: 0 auto;
-                .restaurantsCardFigureImg {
-                    min-width: 100%;
-                    height: 66%;
-                    border-radius: 1em 1em 0 0;
-                    object-fit: cover; 
-                }
-                .restaurantsCardFigureNew {
-                    position: absolute;
-                    top: -5px;
-                    right: 10px;
-                    background-color: $mint;
-                    color: $green;
-                    font-weight: bold;
-                    padding: 0.5em;
-                }
-                .restaurantsCardFigureFigcaption {
-                    position: relative;
-                    
-                    h3 {
-                        color: black;
-                        font-weight: 900;
-                        margin: 0 0 0 1em;
-                        padding-top: 0.5em;
-                        text-decoration: none;
-                    }
-                    .restaurantsCardDescript {
-                        color: black;
-                        margin: 0 0 0 1em;
-                    }
-                    .restaurantsCardIcon {
-                        position: absolute;
-                        top: 15px;
-                        right: 10px;
-                        
-                    }
-                }
-        }
-    }
+//------------------------
+//Mixin Spinner
+//------------------------
+
+@mixin loader {
+    width: 50px;
+    height:50px; 
+    display: block;
+    position:fixed;
+    z-index :1;
+    top: 390px;
+    opacity:0;
+    border-radius: 50px;
+    border: 5px solid $mint;
+    animation: spinner 2s linear 0.5s;  
+        &::after {
+            content:"";
+            position:absolute;
+            top: -6px;
+            right: -6px;
+            bottom: -6px;
+            left: -6px;
+            border: 6px solid transparent;
+            border-top-color: $green;
+            border-bottom-color: $green;
+            border-radius: 50px;
+            animation:spin 1s linear 0.5s;
+            animation-iteration-count: 2;
+        } 
 }
 
 
-@mixin foot { 
-width:100%;
-background-color: black;
-    .footerFooter {
-            
-        .footerLogo {
-            font-family: 'Shrikhand', cursive;
-            width: 200px;
-            color: white;
-            margin:1em;
-            padding-top: 1em;
-        }
-    }
-    .footerList {
-        display:flex;
-        flex-direction:column;
-        .footerList1 {
-            display: flex;
-            margin-left: 0.5em;
-            margin-bottom: 0.5em;
-            font-weight: 700;
-            .footerListIcon1 {
-                margin: 0 0.5em;
-                color: white;
-            }
-            .footerListIcon2 {
-                margin: 0 0 0 0.5em;
-                color: white;
-            }
-            .footerListtext {
-                color: white;
-                margin-left: 0.5em;
-                margin-bottom: 0.5em;
-            }
-        }
-    }
-}
+
+
 

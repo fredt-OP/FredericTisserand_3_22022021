@@ -1,7 +1,8 @@
 @import "./Utils/variables";  
 @import "./Utils/functions";  
 @import "./Utils/extensions";
-@import "./Utils/mixins";  
+@import "./Utils/mixins";
+@import "./Utils/animations.scss"; 
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
 
@@ -12,8 +13,13 @@ body {
     font-family: 'Roboto', sans-serif;
     margin:0;
 }
+
+/*------------------------*/
 /*Le logo*/
+/*------------------------*/
 .header {
+    max-width: 1200px;
+    margin:0 auto;
     position: relative;
     @include dflexjcc;
     .headerLogo {
@@ -26,10 +32,17 @@ body {
         left: 20px;
         color:black;
         text-decoration: none;
-       }
+    }
 }
 
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*------------------------*/
 /*Location*/
+/*------------------------*/
 .location {
     @include dflexjcc;
     background-color: $grey;
@@ -43,7 +56,10 @@ body {
     }
 }
 
-/*Titres et bouton*/
+/*------------------------*/
+/*Titres et boutons*/
+/*------------------------*/
+
 .title {
     @include dflexcolc;
     width:100%;
@@ -60,128 +76,508 @@ body {
         margin-top: 0;
     }
     .explore {
+        text-decoration: none;
         @include buttonradient;
+    }
+    .spinner {
+        width: 100%;
+        @include dflexjcc;
+        .loader{
+        @include loader;
+        }
     }
 }
 
+/*------------------------*/
 /*Le fonctionnement*/
+/*------------------------*/
+
 .operation {
-    h2{
+    h2 {
         display:flex;
         justify-content:flex-start;
-        margin-left: 1.5em;
+        margin-left: 0.8em;
         margin-top: 2em;
     }
     .operationChoices {
         margin-bottom: 3em;
-    @include dflexcolc;
-
+        @include dflexcolc;
         .operationChoice {
             @include operationCard;
+            width:87%;
+            background-color: rgba($grey, 0.3);
+            border-radius: 20px;
+            box-shadow: 0px 2px 8px 0px #00000020;
+            font-weight: 900;
+            margin: 0.5em 1em 0.5em 1.5em;
+            &:hover {
+                background-color: rgba($primary, 0.3);
+            }
+            p {
+                position:absolute;
+                top: 6px;
+                left: -0.75em;
+                border-radius: 100%;
+                color: white;
+                background-color: $primary;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 0.25em 0.6em 0.25em 0.6em;
+            }
+            .operationChoiceIcon {
+                display: flex;
+                align-items: center;
+                margin-left: 2em;
+                &:hover {
+                    color: $primary;
+                }     
+            } 
         }
- 
- /*Les restaurants*/   }
+        h3 {
+            width: 100%;
+            text-align: center;
+        }
+        .title1 {
+            margin-left: -1em;
+        }
+        .title2 {
+            margin-left: -2em;
+        }
+        .title3 {
+            margin-left: -1.5em;
+        }
+    }
 }
+
+/*------------------------*/
+/*responsive*/
+/*------------------------*/
+
+@media screen and (min-width: 700px) {
+    .operation {
+        h2 {
+            display:flex;
+            justify-content:center;
+            margin-left: 0;
+        }
+        .operationChoices {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+        } 
+        .operationChoice {
+            margin-right: 2em;
+            margin-left: 2em;
+            max-width: 400px;
+        }
+    }    
+}
+
+/*------------------------*/
+/*Les restaurants*/ 
+/*------------------------*/
+
 .restaurants {
     background-color: $grey;
     background: lighten($grey, 14);
+    margin-bottom: -1em;
+    padding-bottom: 2em;
     h2 {
         margin: 0;
-        padding: 2.5em 0 0 1em;
+        padding: 2.5em 0 0 0.8em;
         font-weight: 900;
     }
 }
-.restaurantsCardList {
-    @include viewRestaurant;
+.restaurantsCard {
+    max-width: 90%;   
+    border-radius: 1.25em;
+    cursor:pointer;
+    transition-duration: 0.1s;
+    text-decoration: none;   
+    .restaurantsCardFigure {
+        position: relative;
+        background-color: white;
+        border-radius: 1em 1em 1em 1em;
+        box-shadow: 0px 4px 8px 0px #00000020;
+        width: 90%;
+        height: 13em;
+        margin: 1.1em ;
+        .restaurantsCardFigureImg {
+            min-width: 100%;
+            height: 66%;
+            border-radius: 1em 1em 0 0;
+            object-fit: cover; 
+        }
+        .restaurantsCardFigureNew {
+            position: absolute;
+            top: -5px;
+            right: 10px;
+            background-color: $mint;
+            color: $green;
+            font-weight: bold;
+            padding: 0.5em;
+        }
+        .restaurantsCardFigureFigcaption {
+            position: relative;
+            h3 {
+                color: black;
+                font-weight: 900;
+                margin: 0 0 0 1em;
+                padding-top: 0.5em;
+                text-decoration: none;
+            }
+            .restaurantsCardDescript {
+                color: black;
+                 margin: 0 0 0 1em;
+            }
+            .restaurantsCardIcon {
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                .heart {
+                    font-size: 25px;
+                    &:hover {
+                        background: -webkit-linear-gradient(175deg, rgba(255,121,218,1) 10%, rgba(147,86,220,1) 95%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-weight: bold;
+                        -webkit-animation: heart 1s both;
+                        animation: heart 1s both;
+                    }
+                }   
+            }
+        }
+    }
 }
 
-/*Pages*/
+/*------------------------*/
+/*responsive*/
+/*------------------------*/
+
+@media screen and (min-width: 700px) {
+    .restaurants {
+        h2 {
+            display:flex;
+            justify-content: center;
+            margin-bottom: 1.5em;
+        }
+        .restaurantsCardList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+                .restaurantsCardFigure {
+                    min-width: 400px;
+            }
+        }
+    }
+}
+
+/*------------------------*/
+/*Pages - Menus*/ 
+/*------------------------*/
+
 .restaurantCard {
     margin: 0 auto;
-    
-    
     .restaurantCardImgImg {
         height: 285px;
-            width: 100%;
+        width: 100%;
     }
-    
     .restaurantCardMenu {
         position: relative;
-        
         margin-top: -3em;
         background-color: $grey;
         background: lighten($grey, 14);
         border-radius: 2em 2em 0 0;
         width: 100%;
         height: 100%;
-            .restaurantCardMenuTitle {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                padding-top: 1em;
-                width: 100%;
-            }
+        .restaurantCardMenuTitle {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 1em;
+            width: 100%;
             h1 {
                 font-family: 'Shrikhand', cursive;
                 font-weight: 500;
-                font-size: 30px;
-                margin-left: 0.5em;
+                font-size: 28px;
             }
-            .restaurantCardMenus {
+            .heartMenu {
+                font-size:25px;
+                margin-right:0.5em;
+            }
+        }
+        .restaurantCardMenus {
+            .menu {
+                max-height: 40px;
+                margin-bottom: 1em;
                 h2 {
+                    font-size: 18px;
                     margin-top: 0.5em;
                     margin-left: 1em;
-                    font-weight: 500;
-                }
-                .cardMenus {
+                    margin-bottom: 0.3em;
+                    font-weight: 400;
+                    &:after {
+                        content:"";
+                        width: 70px;
+                        height: 4px;
+                        display:block;
+                        background-color: $mint;
+                        margin: 0.3em 0;
+                    }
+                }   
+            }
+            .cardMenus {
+                .card {
                     display:flex;
-                    flex-direction: column;
+                    justify-content: center;
                     align-items: center;
-                    .cardMenu{
+                    width:100%;
+                    overflow: hidden;
+                    .cardMenu {
                         background-color: white;
                         border-radius: 1em;
                         box-shadow: 0px 2px 8px 0px #00000020;
                         width: 90%;
-                        height: 5em;
+                        height: 4em;
                         position: relative;
                         margin: 0.5em 0;
-
+                        overflow:hidden;
+                        transform: translateY(45px);
+                        &:hover{
+                            .container{
+                            transition-duration: 800ms;
+                            transform: translate(-60px);
+                                .circle {
+                                    transition-duration: 800ms;
+                                    transform:rotate(-360deg);
+                                }
+                            }
+                            .cardMenuPriceIcon {
+                                .bold { 
+                                    transform: translate(-60px);
+                                    transition-duration: 800ms;
+                                    margin-left: 3em;
+                                }
+                            }
+                        }               
                         h3 {
+                            font-size: 17px;
                             font-weight: 700;
-                            margin: 0.6em 0 0.3em 0.5em;
-                        }
-                        p {
-                            margin: 0 0 0 0.5em;
+                            margin: 0.6em 3em 0.3em 1em;
+                            overflow:hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
                         }
                         .cardMenuPriceIcon {
-                            position:absolute;
-                            top: 10px;
-                            right: 10px;
+                            display:flex;
+                            flex-direction:row;
+                            justify-content:space-between;
+                            margin: 0 1em;
+                            .desc {
+                                font-size: 14px;
+                                font-weight: 300;
+                                overflow:hidden;
+                                margin-right: 2em;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
+                            .bold{
+                                z-index:2;
+                                font-size: 16px;
+                                font-weight: bold;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                height:100%;
+                            }
                         }
-
+                        .container {
+                            background-color: $mint;;
+                            position:absolute;
+                            top:0;
+                            right:-60px;
+                            width:60px;
+                            height: 4em;
+                            display:flex;
+                            justify-content: center;
+                            align-items: center;              
+                            .circle{
+                                font-size: 1.3em;
+                                position:absolute;
+                                color: #FFFFFF;
+                            }    
+                        }
+                    }
+                    .plat1 {
+                        animation: fadeInAnimation ease 0.6s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
+                    }
+                    .plat2 {
+                        animation: fadeInAnimation ease 0.9s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
+                    }
+                    .plat3 {
+                        animation: fadeInAnimation ease 1.2s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
+                    }
+                    .plat4 {
+                        animation: fadeInAnimation ease 1.5s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
+                    }
+                    .plat5 {
+                        animation: fadeInAnimation ease 1.8s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
+                    }
+                    .plat6 {
+                        animation: fadeInAnimation ease 2.1s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
+                    }
+                    .plat7 {
+                        animation: fadeInAnimation ease 2.4s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
+                    }
+                    .plat8 {
+                        animation: fadeInAnimation ease 2.7s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
+                    }
+                    .plat9 {
+                        animation: fadeInAnimation ease 3s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
+                    }
+                    .plat10 {
+                        animation: fadeInAnimation ease 3.3s;
+                        animation-fill-mode: forwards;
+                        opacity:0;
                     }
                 }
             }
-            .button {
+        }
+        .button {
+            @include dflexjcc;
+            .order {
                 @include dflexjcc;
-                .order {
-                    @include dflexjcc;
-                    @include buttonradient;
-                     width: 10em;
-                 }
+                @include buttonradient;
+                margin-top:2.5em;
+                margin-bottom:2.5em;
+                width: 10em;
             }
-    }
-
+        }      
+    }     
 }
 
+/*------------------------*/
+/*responsive*/
+/*------------------------*/
 
-
-
-
-
-
-
+@media screen and (min-width: 700px) {
+    .restaurantCard {
+        .restaurantCardMenu {
+            .restaurantCardMenuTitle {
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 auto;
+                max-width: 600px;
+            }
+            .restaurantCardMenus {
+                .menu { 
+                    h2 {
+                        display:flex;
+                        justify-content:center;
+                        width:100%;
+                        &::after {
+                            display:none;
+                        }
+                    }
+                }
+                .cardMenus {
+                    display: flex;
+                        flex-wrap: wrap;
+                        flex-direction: row;
+                        justify-content: space-evenly;
+                    .card {
+                        max-width: 430px;
+                        margin: 0.5em;   
+                    }
+                }
+            }
+        }
+    }
+}
 
 footer {
-    @include foot;
+    max-width: 1200px;
+    margin:0 auto;
+    width:100%;
+    background-color: black;
+    .footerFooter {    
+        .footerLogo {
+            font-family: 'Shrikhand', cursive;
+            width: 200px;
+            color: white;
+            margin:1em;
+            padding-top: 1em;
+        }
     }
+    .footerList {
+        display:flex;
+        flex-direction:column;
+        .footerList1,
+        .footerList2,
+        .footerList3,
+        .footerList4 {
+            max-width: 250px;
+            display: flex;
+            margin-left: 0.5em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+            .footerListIcon1 {
+                margin: 0 0.5em;
+                color: white;
+            }
+            .footerListIcon2 {
+                margin: 0 0 0 0.5em;
+                color: white;
+            }
+            .footerListtext {
+                color: white;
+                margin-left: 0.5em;
+                margin-bottom: 0.5em;
+            }
+        }
+    }
+}
+
+/*------------------------*/
+/*responsive*/
+/*------------------------*/
+
+@media screen and (min-width: 700px) {
+    footer {
+        .footerFooter {
+            display:flex;
+            justify-content: center;
+            .footerLogo {
+                display:flex;
+                justify-content: center;
+                margin: 0;
+            }
+        }
+        .footerList {
+            display:flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 1em;
+        }
+    }    
+}

@@ -1,12 +1,68 @@
+/*--------------------------------*/
+/*Animation Chargement de page*/
+/*--------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap");
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/*------------------------*/
+/*Animation Coeur*/
+/*------------------------*/
+@keyframes heart {
+  0% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0.20;
+  }
+  46% {
+    opacity: 0.50;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*------------------------*/
+/*Animation Spinner*/
+/*------------------------*/
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 body {
   font-family: 'Shrikhand', cursive;
   font-family: 'Roboto', sans-serif;
   margin: 0;
 }
 
+/*------------------------*/
 /*Le logo*/
+/*------------------------*/
 .header {
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
   display: flex;
   justify-content: center;
@@ -25,7 +81,14 @@ body {
   text-decoration: none;
 }
 
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*------------------------*/
 /*Location*/
+/*------------------------*/
 .location {
   display: flex;
   justify-content: center;
@@ -41,7 +104,9 @@ body {
   margin: 0 0.5em;
 }
 
-/*Titres et bouton*/
+/*------------------------*/
+/*Titres et boutons*/
+/*------------------------*/
 .title {
   display: flex;
   flex-direction: column;
@@ -64,6 +129,7 @@ body {
 }
 
 .title .explore {
+  text-decoration: none;
   font-weight: bold;
   color: white;
   background: #ff79da;
@@ -75,14 +141,50 @@ body {
 }
 
 .title .explore:hover {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
+.title .spinner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.title .spinner .loader {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: fixed;
+  z-index: 1;
+  top: 390px;
+  opacity: 0;
+  border-radius: 50px;
+  border: 5px solid #99e2d0;
+  animation: spinner 2s linear 0.5s;
+}
+
+.title .spinner .loader::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  bottom: -6px;
+  left: -6px;
+  border: 6px solid transparent;
+  border-top-color: #008766;
+  border-bottom-color: #008766;
+  border-radius: 50px;
+  animation: spin 1s linear 0.5s;
+  animation-iteration-count: 2;
+}
+
+/*------------------------*/
 /*Le fonctionnement*/
+/*------------------------*/
 .operation h2 {
   display: flex;
   justify-content: flex-start;
-  margin-left: 1.5em;
+  margin-left: 0.8em;
   margin-top: 2em;
 }
 
@@ -91,19 +193,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*Les restaurants*/
 }
 
 .operation .operationChoices .operationChoice {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 85%;
+  width: 87%;
   background-color: rgba(211, 211, 211, 0.3);
   border-radius: 20px;
   box-shadow: 0px 2px 8px 0px #00000020;
   font-weight: 900;
-  margin: 0.5em 0;
+  margin: 0.5em 1em 0.5em 1.5em;
 }
 
 .operation .operationChoices .operationChoice:hover {
@@ -113,13 +214,13 @@ body {
 .operation .operationChoices .operationChoice p {
   position: absolute;
   top: 6px;
-  left: -0.5em;
+  left: -0.75em;
   border-radius: 100%;
   color: white;
   background-color: #9356DC;
   font-size: 14px;
   font-weight: 500;
-  padding: 0.25em 0.5em 0.25em 0.5em;
+  padding: 0.25em 0.6em 0.25em 0.6em;
 }
 
 .operation .operationChoices .operationChoice .operationChoiceIcon {
@@ -132,48 +233,87 @@ body {
   color: #9356DC;
 }
 
-.operation .operationChoices .operationChoice h3 {
+.operation .operationChoices h3 {
   width: 100%;
   text-align: center;
 }
 
+.operation .operationChoices .title1 {
+  margin-left: -1em;
+}
+
+.operation .operationChoices .title2 {
+  margin-left: -2em;
+}
+
+.operation .operationChoices .title3 {
+  margin-left: -1.5em;
+}
+
+/*------------------------*/
+/*responsive*/
+/*------------------------*/
+@media screen and (min-width: 700px) {
+  .operation h2 {
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+  }
+  .operation .operationChoices {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .operation .operationChoice {
+    margin-right: 2em;
+    margin-left: 2em;
+    max-width: 400px;
+  }
+}
+
+/*------------------------*/
+/*Les restaurants*/
+/*------------------------*/
 .restaurants {
   background-color: #D3D3D3;
   background: #f7f7f7;
+  margin-bottom: -1em;
+  padding-bottom: 2em;
 }
 
 .restaurants h2 {
   margin: 0;
-  padding: 2.5em 0 0 1em;
+  padding: 2.5em 0 0 0.8em;
   font-weight: 900;
 }
 
-.restaurantsCardList .restaurantsCard {
+.restaurantsCard {
   max-width: 90%;
   border-radius: 1.25em;
-  margin: 0.5em;
   cursor: pointer;
   transition-duration: 0.1s;
+  text-decoration: none;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure {
+.restaurantsCard .restaurantsCardFigure {
   position: relative;
   background-color: white;
   border-radius: 1em 1em 1em 1em;
   box-shadow: 0px 4px 8px 0px #00000020;
   width: 90%;
   height: 13em;
-  margin: 0 auto;
+  margin: 1.1em;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureImg {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureImg {
   min-width: 100%;
   height: 66%;
   border-radius: 1em 1em 0 0;
   object-fit: cover;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureNew {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureNew {
   position: absolute;
   top: -5px;
   right: 10px;
@@ -183,11 +323,11 @@ body {
   padding: 0.5em;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption {
   position: relative;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption h3 {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption h3 {
   color: black;
   font-weight: 900;
   margin: 0 0 0 1em;
@@ -195,18 +335,51 @@ body {
   text-decoration: none;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardDescript {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardDescript {
   color: black;
   margin: 0 0 0 1em;
 }
 
-.restaurantsCardList .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardIcon {
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardIcon {
   position: absolute;
   top: 15px;
-  right: 10px;
+  right: 20px;
 }
 
-/*Pages*/
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardIcon .heart {
+  font-size: 25px;
+}
+
+.restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardIcon .heart:hover {
+  background: -webkit-linear-gradient(175deg, #ff79da 10%, #9356dc 95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  animation: heart 1s both;
+}
+
+/*------------------------*/
+/*responsive*/
+/*------------------------*/
+@media screen and (min-width: 700px) {
+  .restaurants h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5em;
+  }
+  .restaurants .restaurantsCardList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .restaurants .restaurantsCardList .restaurantsCardFigure {
+    min-width: 400px;
+  }
+}
+
+/*------------------------*/
+/*Pages - Menus*/
+/*------------------------*/
 .restaurantCard {
   margin: 0 auto;
 }
@@ -234,48 +407,185 @@ body {
   width: 100%;
 }
 
-.restaurantCard .restaurantCardMenu h1 {
+.restaurantCard .restaurantCardMenu .restaurantCardMenuTitle h1 {
   font-family: 'Shrikhand', cursive;
   font-weight: 500;
-  font-size: 30px;
-  margin-left: 0.5em;
+  font-size: 28px;
 }
 
-.restaurantCard .restaurantCardMenu .restaurantCardMenus h2 {
+.restaurantCard .restaurantCardMenu .restaurantCardMenuTitle .heartMenu {
+  font-size: 25px;
+  margin-right: 0.5em;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .menu {
+  max-height: 40px;
+  margin-bottom: 1em;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .menu h2 {
+  font-size: 18px;
   margin-top: 0.5em;
   margin-left: 1em;
-  font-weight: 500;
+  margin-bottom: 0.3em;
+  font-weight: 400;
 }
 
-.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus {
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .menu h2:after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  display: block;
+  background-color: #99e2d0;
+  margin: 0.3em 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  width: 100%;
+  overflow: hidden;
 }
 
-.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .cardMenu {
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu {
   background-color: white;
   border-radius: 1em;
   box-shadow: 0px 2px 8px 0px #00000020;
   width: 90%;
-  height: 5em;
+  height: 4em;
   position: relative;
   margin: 0.5em 0;
+  overflow: hidden;
+  transform: translateY(45px);
 }
 
-.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .cardMenu h3 {
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu:hover .container {
+  transition-duration: 800ms;
+  transform: translate(-60px);
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu:hover .container .circle {
+  transition-duration: 800ms;
+  transform: rotate(-360deg);
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu:hover .cardMenuPriceIcon .bold {
+  transform: translate(-60px);
+  transition-duration: 800ms;
+  margin-left: 3em;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu h3 {
+  font-size: 17px;
   font-weight: 700;
-  margin: 0.6em 0 0.3em 0.5em;
+  margin: 0.6em 3em 0.3em 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .cardMenu p {
-  margin: 0 0 0 0.5em;
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu .cardMenuPriceIcon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 1em;
 }
 
-.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .cardMenu .cardMenuPriceIcon {
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu .cardMenuPriceIcon .desc {
+  font-size: 14px;
+  font-weight: 300;
+  overflow: hidden;
+  margin-right: 2em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu .cardMenuPriceIcon .bold {
+  z-index: 2;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 100%;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu .container {
+  background-color: #99e2d0;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  right: -60px;
+  width: 60px;
+  height: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .cardMenu .container .circle {
+  font-size: 1.3em;
+  position: absolute;
+  color: #FFFFFF;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat1 {
+  animation: fadeInAnimation ease 0.6s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat2 {
+  animation: fadeInAnimation ease 0.9s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat3 {
+  animation: fadeInAnimation ease 1.2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat4 {
+  animation: fadeInAnimation ease 1.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat5 {
+  animation: fadeInAnimation ease 1.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat6 {
+  animation: fadeInAnimation ease 2.1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat7 {
+  animation: fadeInAnimation ease 2.4s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat8 {
+  animation: fadeInAnimation ease 2.7s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat9 {
+  animation: fadeInAnimation ease 3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat10 {
+  animation: fadeInAnimation ease 3.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .restaurantCard .restaurantCardMenu .button {
@@ -294,14 +604,49 @@ body {
   box-shadow: 0px 5px 8px 0px #00000020;
   padding: 1em;
   margin: 1em 0 4em 0;
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
   width: 10em;
 }
 
 .restaurantCard .restaurantCardMenu .button .order:hover {
-  opacity: 0.9;
+  opacity: 0.85;
+}
+
+/*------------------------*/
+/*responsive*/
+/*------------------------*/
+@media screen and (min-width: 700px) {
+  .restaurantCard .restaurantCardMenu .restaurantCardMenuTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  .restaurantCard .restaurantCardMenu .restaurantCardMenus .menu h2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .restaurantCard .restaurantCardMenu .restaurantCardMenus .menu h2::after {
+    display: none;
+  }
+  .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card {
+    max-width: 430px;
+    margin: 0.5em;
+  }
 }
 
 footer {
+  max-width: 1200px;
+  margin: 0 auto;
   width: 100%;
   background-color: black;
 }
@@ -319,26 +664,61 @@ footer .footerList {
   flex-direction: column;
 }
 
-footer .footerList .footerList1 {
+footer .footerList .footerList1,
+footer .footerList .footerList2,
+footer .footerList .footerList3,
+footer .footerList .footerList4 {
+  max-width: 250px;
   display: flex;
   margin-left: 0.5em;
   margin-bottom: 0.5em;
   font-weight: 700;
 }
 
-footer .footerList .footerList1 .footerListIcon1 {
+footer .footerList .footerList1 .footerListIcon1,
+footer .footerList .footerList2 .footerListIcon1,
+footer .footerList .footerList3 .footerListIcon1,
+footer .footerList .footerList4 .footerListIcon1 {
   margin: 0 0.5em;
   color: white;
 }
 
-footer .footerList .footerList1 .footerListIcon2 {
+footer .footerList .footerList1 .footerListIcon2,
+footer .footerList .footerList2 .footerListIcon2,
+footer .footerList .footerList3 .footerListIcon2,
+footer .footerList .footerList4 .footerListIcon2 {
   margin: 0 0 0 0.5em;
   color: white;
 }
 
-footer .footerList .footerList1 .footerListtext {
+footer .footerList .footerList1 .footerListtext,
+footer .footerList .footerList2 .footerListtext,
+footer .footerList .footerList3 .footerListtext,
+footer .footerList .footerList4 .footerListtext {
   color: white;
   margin-left: 0.5em;
   margin-bottom: 0.5em;
+}
+
+/*------------------------*/
+/*responsive*/
+/*------------------------*/
+@media screen and (min-width: 700px) {
+  footer .footerFooter {
+    display: flex;
+    justify-content: center;
+  }
+  footer .footerFooter .footerLogo {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+  footer .footerList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 1em;
+  }
 }
 /*# sourceMappingURL=style.css.map */
