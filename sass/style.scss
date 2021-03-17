@@ -76,6 +76,7 @@ main {
         margin-top: 0;
     }
     .explore {
+        text-decoration: none;
         @include buttonradient;
     }
     .spinner {
@@ -95,7 +96,7 @@ main {
     h2 {
         display:flex;
         justify-content:flex-start;
-        margin-left: 1.5em;
+        margin-left: 0.8em;
         margin-top: 2em;
     }
     .operationChoices {
@@ -184,7 +185,7 @@ main {
     padding-bottom: 2em;
     h2 {
         margin: 0;
-        padding: 2.5em 0 0 1em;
+        padding: 2.5em 0 0 0.8em;
         font-weight: 900;
     }
 }
