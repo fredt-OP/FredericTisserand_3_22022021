@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+//------------------------
+//Mixin Bouton Radient
+//------------------------
+
 @mixin buttonradient {
         font-weight: bold;
         color: white;
@@ -23,11 +27,19 @@
         }
 }
 
+//------------------------
+//Mixin Alignement
+//------------------------
+
 @mixin operationCard {
     display: flex;
     flex-direction: row;
     position: relative;
 }
+
+//------------------------
+//Mixin Spinner
+//------------------------
 
 @mixin loader {
     width: 50px;
@@ -53,8 +65,7 @@
             border-radius: 50px;
             animation:spin 1s linear 0.5s;
             animation-iteration-count: 2;
-        }   
-    
+        } 
 }
 
 

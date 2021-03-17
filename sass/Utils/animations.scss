@@ -1,15 +1,23 @@
+//------------------------
+//Les Animations
+//------------------------
+
+/*--------------------------------*/
+/*Animation Chargement de page*/
+/*--------------------------------*/
 @keyframes fadeInAnimation { 
     0% { 
         opacity: 0; 
     } 
-    100% { 
-        /*transform: 3D;*/
+    100% {
         transform:translateY(0px);
-        
         opacity: 1; 
      } 
 }
- 
+
+/*------------------------*/
+/*Animation Coeur*/ 
+/*------------------------*/
 @keyframes heart {
     0% {
         opacity: 0;
@@ -21,17 +29,17 @@
         opacity: 0.50;
     }
     100% {
-        opacity: 1;
-        
-        
+        opacity: 1;  
     }  
 }
+
+/*------------------------*/
+/*Animation Spinner*/
+/*------------------------*/
 @keyframes spin {
     0% { transform: rotate(0deg);}
     100% { transform: rotate(360deg);}
-    
 }
-
 @keyframes spinner {
     0% {
         opacity: 1;
