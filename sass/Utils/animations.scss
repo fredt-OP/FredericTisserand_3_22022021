@@ -3,11 +3,28 @@
         opacity: 0; 
     } 
     100% { 
+        /*transform: 3D;*/
+        transform:translateY(0px);
+        
         opacity: 1; 
      } 
-} 
+}
+ 
 @keyframes heart {
-      
+    0% {
+        opacity: 0;
+    }
+    24% {
+        opacity: 0.20;
+    }
+    46% {
+        opacity: 0.50;
+    }
+    100% {
+        opacity: 1;
+        
+        
+    }  
 }
 @keyframes spin {
     0% { transform: rotate(0deg);}
