@@ -2,6 +2,15 @@
 /*Animation Chargement de page*/
 /*--------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap");
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
@@ -66,6 +75,8 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
+  animation: fadeAnimation 1s ease 1s forwards;
+  opacity: 0;
 }
 
 .header .headerLogo {
@@ -98,6 +109,8 @@ main {
   font-weight: bold;
   padding: 1em 0;
   border-top: 3px solid #D3D3D3;
+  animation: fadeAnimation 1s ease 1s forwards;
+  opacity: 0;
 }
 
 .location .locationIcon, .location .locationTitle {
@@ -115,6 +128,8 @@ main {
   background-color: #D3D3D3;
   background: rgba(211, 211, 211, 0.3);
   text-align: center;
+  animation: fadeAnimation 1s ease 1s forwards;
+  opacity: 0;
 }
 
 .title h1 {
@@ -145,13 +160,13 @@ main {
   box-shadow: 0px 5px 8px 0px #00000050;
 }
 
-.title .spinner {
+.spinner {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.title .spinner .loader {
+.spinner .loader {
   width: 50px;
   height: 50px;
   display: block;
@@ -164,7 +179,7 @@ main {
   animation: spinner 2s linear 0.5s;
 }
 
-.title .spinner .loader::after {
+.spinner .loader::after {
   content: "";
   position: absolute;
   top: -6px;
@@ -175,13 +190,18 @@ main {
   border-top-color: #008766;
   border-bottom-color: #008766;
   border-radius: 50px;
-  animation: spin 1s linear 0.5s;
-  animation-iteration-count: 2;
+  animation: spin 1.5s linear 0.5s;
+  animation-iteration-count: 1;
 }
 
 /*------------------------*/
 /*Le fonctionnement*/
 /*------------------------*/
+.operation {
+  animation: fadeAnimation 1s ease 1s forwards;
+  opacity: 0;
+}
+
 .operation h2 {
   display: flex;
   justify-content: flex-start;
@@ -206,6 +226,7 @@ main {
   box-shadow: 0px 2px 8px 0px #00000020;
   font-weight: 900;
   margin: 0.5em 1em 0.5em 1.5em;
+  cursor: pointer;
 }
 
 .operation .operationChoices .operationChoice:hover {
@@ -281,6 +302,8 @@ main {
   background: #f7f7f7;
   margin-bottom: -1em;
   padding-bottom: 2em;
+  animation: fadeAnimation 1s ease 1s forwards;
+  opacity: 0;
 }
 
 .restaurants h2 {
@@ -348,6 +371,7 @@ main {
 }
 
 .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureFigcaption .restaurantsCardIcon .heart {
+  color: black;
   font-size: 25px;
 }
 
@@ -388,6 +412,7 @@ main {
 .restaurantCard .restaurantCardImgImg {
   height: 285px;
   width: 100%;
+  object-fit: cover;
 }
 
 .restaurantCard .restaurantCardMenu {
@@ -651,6 +676,8 @@ footer {
   margin: 0 auto;
   width: 100%;
   background-color: black;
+  animation: fadeAnimation 1s ease 1s forwards;
+  opacity: 0;
 }
 
 footer .footerFooter .footerLogo {
