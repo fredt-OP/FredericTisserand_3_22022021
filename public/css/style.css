@@ -255,10 +255,6 @@ main {
   margin-left: 2em;
 }
 
-.operation .operationChoices .operationChoice .operationChoiceIcon:hover {
-  color: #9356DC;
-}
-
 .operation .operationChoices h3 {
   width: 100%;
   text-align: center;
