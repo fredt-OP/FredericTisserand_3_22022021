@@ -233,6 +233,10 @@ main {
   background-color: rgba(147, 86, 220, 0.3);
 }
 
+.operation .operationChoices .operationChoice:hover .operationChoiceIcon {
+  color: #9356DC;
+}
+
 .operation .operationChoices .operationChoice p {
   position: absolute;
   top: 6px;
