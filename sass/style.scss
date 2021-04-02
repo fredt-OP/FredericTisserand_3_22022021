@@ -313,6 +313,14 @@ main {
             .heartMenu {
                 font-size:25px;
                 margin-right:0.5em;
+                &:hover {
+                    background: -webkit-linear-gradient(175deg, rgba(255,121,218,1) 10%, rgba(147,86,220,1) 95%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-weight: bold;
+                    -webkit-animation: heart 1s both;
+                    animation: heart 1s both;
+                }
             }
         }
         .restaurantCardMenus {
