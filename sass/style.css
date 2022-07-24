@@ -2,11 +2,28 @@
 /*Animation Chargement de page*/
 /*--------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap");
+@-webkit-keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes fadeAnimation {
   0% {
     opacity: 0;
   }
   100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
     opacity: 1;
   }
 }
@@ -22,6 +39,20 @@
 /*------------------------*/
 /*Animation Coeur*/
 /*------------------------*/
+@-webkit-keyframes heart {
+  0% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0.2;
+  }
+  46% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes heart {
   0% {
     opacity: 0;
@@ -39,12 +70,28 @@
 /*------------------------*/
 /*Animation Spinner*/
 /*------------------------*/
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes spinner {
@@ -70,7 +117,8 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  animation: fadeAnimation 1s ease 1s forwards;
+  -webkit-animation: fadeAnimation 1s ease 1s forwards;
+          animation: fadeAnimation 1s ease 1s forwards;
   opacity: 0;
 }
 .header .headerLogo {
@@ -102,7 +150,8 @@ main {
   font-weight: bold;
   padding: 1em 0;
   border-top: 3px solid #D3D3D3;
-  animation: fadeAnimation 1s ease 1s forwards;
+  -webkit-animation: fadeAnimation 1s ease 1s forwards;
+          animation: fadeAnimation 1s ease 1s forwards;
   opacity: 0;
 }
 .location .locationIcon, .location .locationTitle {
@@ -120,7 +169,8 @@ main {
   background-color: #D3D3D3;
   background: rgba(211, 211, 211, 0.3);
   text-align: center;
-  animation: fadeAnimation 1s ease 1s forwards;
+  -webkit-animation: fadeAnimation 1s ease 1s forwards;
+          animation: fadeAnimation 1s ease 1s forwards;
   opacity: 0;
 }
 .title h1 {
@@ -163,7 +213,8 @@ main {
   opacity: 0;
   border-radius: 50px;
   border: 5px solid #99e2d0;
-  animation: spinner 2s linear 0.5s;
+  -webkit-animation: spinner 2s linear 0.5s;
+          animation: spinner 2s linear 0.5s;
 }
 .spinner .loader::after {
   content: "";
@@ -176,15 +227,18 @@ main {
   border-top-color: #008766;
   border-bottom-color: #008766;
   border-radius: 50px;
-  animation: spin 1.5s linear 0.5s;
-  animation-iteration-count: 1;
+  -webkit-animation: spin 1.5s linear 0.5s;
+          animation: spin 1.5s linear 0.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
 }
 
 /*------------------------*/
 /*Le fonctionnement*/
 /*------------------------*/
 .operation {
-  animation: fadeAnimation 1s ease 1s forwards;
+  -webkit-animation: fadeAnimation 1s ease 1s forwards;
+          animation: fadeAnimation 1s ease 1s forwards;
   opacity: 0;
 }
 .operation h2 {
@@ -276,7 +330,8 @@ main {
   background: #f7f7f7;
   margin-bottom: -1em;
   padding-bottom: 2em;
-  animation: fadeAnimation 1s ease 1s forwards;
+  -webkit-animation: fadeAnimation 1s ease 1s forwards;
+          animation: fadeAnimation 1s ease 1s forwards;
   opacity: 0;
 }
 .restaurants h2 {
@@ -305,7 +360,8 @@ main {
   min-width: 100%;
   height: 66%;
   border-radius: 1em 1em 0 0;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .restaurantsCard .restaurantsCardFigure .restaurantsCardFigureNew {
   position: absolute;
@@ -375,7 +431,8 @@ main {
 .restaurantCard .restaurantCardImgImg {
   height: 285px;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .restaurantCard .restaurantCardMenu {
   position: relative;
@@ -507,53 +564,73 @@ main {
   color: #FFFFFF;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat1 {
-  animation: fadeInAnimation ease 0.6s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 0.6s;
+          animation: fadeInAnimation ease 0.6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat2 {
-  animation: fadeInAnimation ease 0.9s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 0.9s;
+          animation: fadeInAnimation ease 0.9s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat3 {
-  animation: fadeInAnimation ease 1.2s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 1.2s;
+          animation: fadeInAnimation ease 1.2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat4 {
-  animation: fadeInAnimation ease 1.5s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 1.5s;
+          animation: fadeInAnimation ease 1.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat5 {
-  animation: fadeInAnimation ease 1.8s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 1.8s;
+          animation: fadeInAnimation ease 1.8s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat6 {
-  animation: fadeInAnimation ease 2.1s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 2.1s;
+          animation: fadeInAnimation ease 2.1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat7 {
-  animation: fadeInAnimation ease 2.4s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 2.4s;
+          animation: fadeInAnimation ease 2.4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat8 {
-  animation: fadeInAnimation ease 2.7s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 2.7s;
+          animation: fadeInAnimation ease 2.7s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat9 {
-  animation: fadeInAnimation ease 3s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 3s;
+          animation: fadeInAnimation ease 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .restaurantCardMenus .cardMenus .card .plat10 {
-  animation: fadeInAnimation ease 3.3s;
-  animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation ease 3.3s;
+          animation: fadeInAnimation ease 3.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .restaurantCard .restaurantCardMenu .button {
@@ -615,7 +692,8 @@ footer {
   margin: 0 auto;
   width: 100%;
   background-color: black;
-  animation: fadeAnimation 1s ease 1s forwards;
+  -webkit-animation: fadeAnimation 1s ease 1s forwards;
+          animation: fadeAnimation 1s ease 1s forwards;
   opacity: 0;
 }
 footer .footerFooter .footerLogo {

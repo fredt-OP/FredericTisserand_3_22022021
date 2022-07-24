@@ -1,11 +1,28 @@
 /*--------------------------------*/
 /*Animation Chargement de page*/
 /*--------------------------------*/
+@-webkit-keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes fadeAnimation {
   0% {
     opacity: 0;
   }
   100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
     opacity: 1;
   }
 }
@@ -21,6 +38,20 @@
 /*------------------------*/
 /*Animation Coeur*/
 /*------------------------*/
+@-webkit-keyframes heart {
+  0% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0.2;
+  }
+  46% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes heart {
   0% {
     opacity: 0;
@@ -38,12 +69,28 @@
 /*------------------------*/
 /*Animation Spinner*/
 /*------------------------*/
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes spinner {
